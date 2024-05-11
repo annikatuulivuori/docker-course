@@ -1,4 +1,4 @@
-# Exercise 1.10: ports-open
+# Exercise 1.10: ports open
 ## commands
 ```
 docker build -t web-server .

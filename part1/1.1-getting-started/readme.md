@@ -1,3 +1,6 @@
+# Exercise 1.1: getting started
+## commands
+
 ```
 $ docker ps -a
 CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                      PORTS     NAMES

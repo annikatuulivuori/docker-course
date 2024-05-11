@@ -1,3 +1,6 @@
+# Exercise 1.6: hello docker hub
+## commands
+
 ```
 $ docker run -it devopsdockeruh/pull_exercise
 	Status: Downloaded newer image for devopsdockeruh/pull_exercise:latest
