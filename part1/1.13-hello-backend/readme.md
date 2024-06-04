@@ -5,6 +5,6 @@ cd material-applications/example-backend/
 
 // create Dockerfile
 
-docker run -p 8080:8080 backend
 docker build . -t backend
+docker run -p 8080:8080 backend
 ```
