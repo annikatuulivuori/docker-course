@@ -2,5 +2,5 @@
 ## commands
 
 ```
-dociker compose up
+docker compose up
 ```
