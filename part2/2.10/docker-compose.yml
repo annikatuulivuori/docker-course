@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  backend:
+    image: backend
+    environment:
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_DATABASE=postgres
+      - REQUEST_ORIGIN=http://localhost
+    depends_on:
+      - redis
+      - db
+    container_name: backend
+    networks:
+      - nginx-network
+
+  frontend:
+    image: frontend
+    container_name: frontend
+    networks:
+      - nginx-network
+
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    container_name: redis
+    networks:
+      - nginx-network
+
+  db:
+    image: postgres:alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    container_name: db
+    networks:
+      - nginx-network
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    container_name: nginx
+    networks:
+      - nginx-network
+
+networks:
+  nginx-network:
+    name: nginx-network
